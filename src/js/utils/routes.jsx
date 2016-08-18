@@ -53,6 +53,11 @@ const error404 =  (location, cb) => {
     },'errorpage')
 }
 
+const Wtodo = (location, cb) => {
+  require.ensure([], require => {
+    cb(null, require('../containers/Wtodo'))
+  },'wtodo')
+}
 
 
 
@@ -69,6 +74,7 @@ export default (
            getComponent={UserPage} />
       </Route>
       <Route path="hotel" getComponent={HotelPage} />
+      <Route path="wtodo" getComponent={Wtodo} />
       <Route path="about" getComponent={AboutPage} />
       <Route path="*" getComponent={error404}/>
   </Route>

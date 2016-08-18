@@ -42,21 +42,22 @@ app.on('error', (err, ctx) => {
   console.error(err, ctx);
 });
 
-app.use(function*(next) {
+app.use(convert(function*(next) {
   if (this.url.match(/favicon\.ico$/)) {
     // statement
     this.body = '';
   }
 
   yield next;
-});
+}));
+
 
 //日志
-app.use(function*(next) {
+app.use(convert(function*(next) {
   /* body... */
   console.log(this.method.info, this.url);
   yield next;
-});
+}));
 
 
 app.use(convert(historyApiFallback({
@@ -72,19 +73,19 @@ if (dev) {
   let compiler = webpack(webpackConf);
 
   //使用koa做服务器配置koa-webpack-dev-middleware
-  app.use(webpackDevMiddleware(compiler, webpackConf.devServer));
+  app.use(convert(webpackDevMiddleware(compiler, webpackConf.devServer)));
 
   //配置webpack-hot-middleware实现hot module replace
   let hotMiddleware = require('webpack-hot-middleware')(compiler);
 
   //koa 对webpack-hot-middleware做适配
-  app.use(function*(next) {
+  app.use(convert(function*(next) {
     yield hotMiddleware.bind(null, this.req, this.res);
     yield next;
-  });
+  }));
 
   //应用静态资源
-  app.use(serve(path.resolve(__dirname, '../src/static')));
+  app.use(convert(serve(path.resolve(__dirname, '../src/static'))));
 } else {
   //使用src/dist目录
   app.use(serve(staticDir, {

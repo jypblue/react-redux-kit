@@ -10,8 +10,8 @@
 import {
   expect
 } from 'chai';
-import * as actions from '../src/js/actions/rxTodoActions';
-import * as types from '../src/js/constants/rxTodoActionTypes';
+import * as actions from '../src/js/actions/todos';
+import * as types from '../src/js/constants/todos';
 
 describe('actions', () => {
   it('should create an action to add a todo', () => {

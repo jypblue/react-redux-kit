@@ -24,8 +24,8 @@ class Sidebar extends Component {
           <Menu.Item key="5"><Link to="/about"><span><Icon type="question-circle" /><span>About</span></span></Link></Menu.Item>
           <SubMenu key="sub2" title={<span><Icon type="team" /><span>酒店</span></span>}>
             <Menu.Item key="6"><Link to="/hotel"><span><i className="iconfont icon-hotel"style={{marginRight: 8}}></i></span><span>Hotel</span></Link></Menu.Item>
-            <SubMenu key="sub3" title="三级导航">
-              <Menu.Item key="7">选项7</Menu.Item>
+            <SubMenu key="sub3" title="wtodo">
+              <Menu.Item key="7"><Link to="/wtodo"><span><Icon type="book"/></span><span>Wtodo</span></Link></Menu.Item>
               <Menu.Item key="8">选项8</Menu.Item>
             </SubMenu>
           </SubMenu>

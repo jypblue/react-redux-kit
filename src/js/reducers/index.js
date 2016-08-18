@@ -13,6 +13,7 @@ import layout from './layout';
 import todos from './todos';
 import version from './version';
 import realworld from './realworld';
+import wtodoApp from './wtodo';
 
 // entities: realworld.entities,
 // pagination: realworld.pagination,
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   layout: undoable(layout),
   todos: undoable(todos),
   realworld: realworld,
+  wtodo: wtodoApp,
   routing: routerReducer
 });
 

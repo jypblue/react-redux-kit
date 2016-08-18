@@ -36,12 +36,12 @@ import '../css/ui/todo.css';
 import '../css/ui/realworld.css';
 import '../css/page/hotel.css';
 
+
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(browserHistory, initialState);
 const history = syncHistoryWithStore(browserHistory, store);
 
 const rootElement = document.getElementById('root');
-
 match({
   history,
   routes
